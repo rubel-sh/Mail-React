@@ -55,11 +55,11 @@ const NavSide = () => {
             </li>
             <li>
               <NavLink
-                to="/inbox"
+                to="/custom"
                 className="pl-5 md:pl-10 py-1 hover:bg-[#C6E0F5]  active:scale-95 transition-all flex items-center justify-between"
               >
-                <p>Inbox</p>
-                <small className="pr-5 text-[#2B76DA]">{inbox.length}</small>
+                <p>Custom</p>
+                <small className="pr-5 text-[#2B76DA]">{custom.length}</small>
               </NavLink>
             </li>
           </ul>
