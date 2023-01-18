@@ -8,7 +8,7 @@ const MainLayout = () => {
   return (
     <div>
       <Heading />
-      <div className="grid grid-cols-12">
+      <div className="grid grid-cols-12 h-screen">
         <div className="col-span-3 bg-slate-200">
           <NavSide />
         </div>
