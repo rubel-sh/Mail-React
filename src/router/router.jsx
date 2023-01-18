@@ -13,14 +13,17 @@ export const router = createBrowserRouter([
       {
         path: "/",
         element: <Inbox />,
+        loader: async () => fetch("inbox.json"),
       },
       {
         path: "inbox",
         element: <Inbox />,
+        loader: async () => fetch("inbox.json"),
       },
       {
         path: "spam",
         element: <Spam />,
+        loader: async () => fetch("spam.json"),
       },
       {
         path: "deleted",
