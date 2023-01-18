@@ -1,8 +1,10 @@
 import React, { useContext } from "react";
 import { MailContext } from "../../../../context/MailProvider";
+import { BsTrash } from "react-icons/bs";
 
 const Spam = () => {
-  const { spam, setSelectedMail } = useContext(MailContext);
+  const { spam, setSelectedMail, deleted, setDeleted } =
+    useContext(MailContext);
   const shortenDesc = (desc) => desc.slice(0, 43) + " ...";
 
   return (
@@ -20,7 +22,15 @@ const Spam = () => {
             }  hover:bg-blue-100 py-2 pr-2 active:scale-95 transition-all`}
           >
             {/* Subject */}
-            <p className="text-lg font-medium text-slate-700">{mail.subject}</p>
+            <div className="flex justify-between items-center">
+              <p className="text-lg font-medium text-slate-700">
+                {mail.subject}
+              </p>
+              <BsTrash
+                onClick={() => setDeleted([...deleted, mail])}
+                className="text-lg hover:text-red-400"
+              />
+            </div>
             <div className="flex justify-between text-[#2B76DA]">
               {/* content */}
               <small className=" uppercase font-medium">

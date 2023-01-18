@@ -8,7 +8,6 @@ import { MailContext } from "../../../context/MailProvider";
 
 const MailSection = () => {
   const { selectedMail } = useContext(MailContext);
-  console.log(selectedMail.mId);
   return (
     <div className="">
       <div className="flex items-center bg-[#DEECFA]">
