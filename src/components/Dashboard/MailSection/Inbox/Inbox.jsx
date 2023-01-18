@@ -6,6 +6,12 @@ const Inbox = () => {
   const { inbox, setInbox, setDeleted, deleted, setSelectedMail } =
     useContext(MailContext);
   const shortenDesc = (desc) => desc.slice(0, 43) + " ...";
+
+  const handleDelete = (delMail) => {
+    const filterInbox = inbox.filter((mail) => mail.mId !== delMail.mId);
+    setInbox(filterInbox);
+    setDeleted([...deleted, delMail]);
+  };
   return (
     <>
       {/* Loop here inbox json*/}
@@ -26,7 +32,7 @@ const Inbox = () => {
                 {mail.subject}
               </p>
               <BsTrash
-                onClick={() => setDeleted([...deleted, mail])}
+                onClick={() => handleDelete(mail)}
                 className="text-lg hover:text-red-400"
               />
             </div>

@@ -3,9 +3,15 @@ import { MailContext } from "../../../../context/MailProvider";
 import { BsTrash } from "react-icons/bs";
 
 const Spam = () => {
-  const { spam, setSelectedMail, deleted, setDeleted } =
+  const { spam, setSpam, setSelectedMail, deleted, setDeleted } =
     useContext(MailContext);
   const shortenDesc = (desc) => desc.slice(0, 43) + " ...";
+
+  const handleDelete = (delMail) => {
+    const filterSpam = spam.filter((mail) => mail.mId !== delMail.mId);
+    setSpam(filterSpam);
+    setDeleted([...deleted, delMail]);
+  };
 
   return (
     <>
@@ -27,7 +33,7 @@ const Spam = () => {
                 {mail.subject}
               </p>
               <BsTrash
-                onClick={() => setDeleted([...deleted, mail])}
+                onClick={() => handleDelete(mail)}
                 className="text-lg hover:text-red-400"
               />
             </div>
