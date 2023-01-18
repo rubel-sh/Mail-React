@@ -23,7 +23,7 @@ const MailSection = () => {
       {/* preview Mail */}
       <div className="grid grid-cols-10 bg-white">
         {/* Emails */}
-        <div className="col-span-4 border border-transparent border-r-slate-600">
+        <div className="col-span-4 ">
           {/* Filter */}
           <div className="flex justify-between items-center px-5 text-lg pt-5">
             <div>
@@ -43,10 +43,13 @@ const MailSection = () => {
           <Outlet />
         </div>
         {/* Email Preview */}
-        <div className="col-span-6">
+        <div className="col-span-6 border border-transparent border-l-slate-600 h-screen">
           <div className="grid place-items-center  mt-10">
             {!selectedMail.mId ? (
-              <img src={mailImage} className="w-[200px]" alt="" />
+              <>
+                <img src={mailImage} className="w-[200px]" alt="" />
+                <h1 className="text-2xl">No Mail Selected</h1>
+              </>
             ) : (
               // Show Mail
               <div className="text-slate-700 px-5">
