@@ -1,11 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
 import { AiOutlinePlusCircle } from "react-icons/ai";
 import { IoMdMailOpen } from "react-icons/io";
 import { AiOutlineCaretDown } from "react-icons/ai";
 import { Outlet } from "react-router-dom";
 import mailImage from "../../../assets/mail.svg";
+import { MailContext } from "../../../context/MailProvider";
 
 const MailSection = () => {
+  const { selectedMail } = useContext(MailContext);
+  console.log(selectedMail.mId);
   return (
     <div className="">
       <div className="flex items-center bg-[#DEECFA]">
@@ -43,7 +46,15 @@ const MailSection = () => {
         {/* Email Preview */}
         <div className="col-span-6">
           <div className="grid place-items-center  mt-10">
-            <img src={mailImage} className="w-[200px]" alt="" />
+            {!selectedMail.mId ? (
+              <img src={mailImage} className="w-[200px]" alt="" />
+            ) : (
+              // Show Mail
+              <div className="text-slate-700 px-5">
+                <h1 className="text-2xl mb-5">{selectedMail.subject}</h1>
+                <p className="text-lg">{selectedMail.content}</p>
+              </div>
+            )}
           </div>
         </div>
       </div>

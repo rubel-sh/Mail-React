@@ -25,22 +25,34 @@ const NavSide = () => {
         <nav className="mt-5 text-lg font-medium">
           <ul className="">
             <li>
-              <NavLink className="pl-5 md:pl-10 py-1 hover:bg-[#C6E0F5] block active:scale-95 transition-all">
+              <NavLink
+                to="/inbox"
+                className="pl-5 md:pl-10 py-1 hover:bg-[#C6E0F5] block active:scale-95 transition-all"
+              >
                 Inbox
               </NavLink>
             </li>
             <li>
-              <NavLink className="pl-5 md:pl-10 py-1 hover:bg-[#C6E0F5] block active:scale-95 transition-all">
+              <NavLink
+                to="spam"
+                className="pl-5 md:pl-10 py-1 hover:bg-[#C6E0F5] block active:scale-95 transition-all"
+              >
                 Spam
               </NavLink>
             </li>
             <li>
-              <NavLink className="pl-5 md:pl-10 py-1 hover:bg-[#C6E0F5] block active:scale-95 transition-all">
+              <NavLink
+                to="/deleted"
+                className="pl-5 md:pl-10 py-1 hover:bg-[#C6E0F5] block active:scale-95 transition-all"
+              >
                 Deleted
               </NavLink>
             </li>
             <li>
-              <NavLink className="pl-5 md:pl-10 py-1 hover:bg-[#C6E0F5] block active:scale-95 transition-all">
+              <NavLink
+                to="custom"
+                className="pl-5 md:pl-10 py-1 hover:bg-[#C6E0F5] block active:scale-95 transition-all"
+              >
                 Custom
               </NavLink>
             </li>

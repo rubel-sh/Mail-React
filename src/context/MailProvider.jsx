@@ -7,6 +7,7 @@ const MailProvider = ({ children }) => {
   const [spam, setSpam] = useState([]);
   const [deleted, setDeleted] = useState([]);
   const [custom, setCustom] = useState([]);
+  const [selectedMail, setSelectedMail] = useState({});
 
   //   Load Inbox Data
   useEffect(() => {
@@ -21,7 +22,7 @@ const MailProvider = ({ children }) => {
   useEffect(() => {
     fetch("spam.json")
       .then((res) => res.json())
-      .then((data) => setInbox(data));
+      .then((data) => setSpam(data));
   }, []);
 
   const values = {
@@ -33,6 +34,8 @@ const MailProvider = ({ children }) => {
     setDeleted,
     custom,
     setCustom,
+    selectedMail,
+    setSelectedMail,
   };
   return <MailContext.Provider value={values}>{children}</MailContext.Provider>;
 };

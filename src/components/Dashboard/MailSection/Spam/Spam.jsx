@@ -1,16 +1,19 @@
 import React, { useContext } from "react";
-import { useLoaderData } from "react-router-dom";
 import { MailContext } from "../../../../context/MailProvider";
 
 const Spam = () => {
-  const { spam } = useContext(MailContext);
+  const { spam, setSelectedMail } = useContext(MailContext);
   const shortenDesc = (desc) => desc.slice(0, 43) + " ...";
 
   return (
     <>
       {/* Loop here spam json*/}
       {spam.map((mail) => (
-        <div key={mail.mId} className="mt-5">
+        <div
+          key={mail.mId}
+          className="mt-5 cursor-pointer"
+          onClick={() => setSelectedMail(mail)}
+        >
           <div
             className={`pl-5 border-l-2 ${
               mail.unread ? "border-l-[#2B76DA]" : "border-l-slate-50"
