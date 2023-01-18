@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import { RxMagnifyingGlass } from "react-icons/rx";
 import { BsFillArrowUpSquareFill } from "react-icons/bs";
 import { NavLink } from "react-router-dom";
+import { MailContext } from "../../../context/MailProvider";
 
 const NavSide = () => {
+  const { inbox, spam, deleted, custom } = useContext(MailContext);
   return (
     <div className="bg-[#F4F4F4] ">
       {/* Search section */}
@@ -27,33 +29,37 @@ const NavSide = () => {
             <li>
               <NavLink
                 to="/inbox"
-                className="pl-5 md:pl-10 py-1 hover:bg-[#C6E0F5] block active:scale-95 transition-all"
+                className="pl-5 md:pl-10 py-1 hover:bg-[#C6E0F5]  active:scale-95 transition-all flex items-center justify-between"
               >
-                Inbox
+                <p>Inbox</p>
+                <small className="pr-5 text-[#2B76DA]">{inbox.length}</small>
               </NavLink>
             </li>
             <li>
               <NavLink
-                to="spam"
-                className="pl-5 md:pl-10 py-1 hover:bg-[#C6E0F5] block active:scale-95 transition-all"
+                to="/spam"
+                className="pl-5 md:pl-10 py-1 hover:bg-[#C6E0F5]  active:scale-95 transition-all flex items-center justify-between"
               >
-                Spam
+                <p>Spam</p>
+                <small className="pr-5 text-[#2B76DA]">{spam.length}</small>
               </NavLink>
             </li>
             <li>
               <NavLink
                 to="/deleted"
-                className="pl-5 md:pl-10 py-1 hover:bg-[#C6E0F5] block active:scale-95 transition-all"
+                className="pl-5 md:pl-10 py-1 hover:bg-[#C6E0F5]  active:scale-95 transition-all flex items-center justify-between"
               >
-                Deleted
+                <p>Deleted</p>
+                <small className="pr-5 text-[#2B76DA]">{inbox.length}</small>
               </NavLink>
             </li>
             <li>
               <NavLink
-                to="custom"
-                className="pl-5 md:pl-10 py-1 hover:bg-[#C6E0F5] block active:scale-95 transition-all"
+                to="/inbox"
+                className="pl-5 md:pl-10 py-1 hover:bg-[#C6E0F5]  active:scale-95 transition-all flex items-center justify-between"
               >
-                Custom
+                <p>Inbox</p>
+                <small className="pr-5 text-[#2B76DA]">{inbox.length}</small>
               </NavLink>
             </li>
           </ul>
