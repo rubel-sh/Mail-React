@@ -12,7 +12,7 @@ const MainLayout = () => {
         <div className="col-span-3 bg-slate-200">
           <NavSide />
         </div>
-        <div className="col-span-9 bg-yellow-100">
+        <div className="col-span-9 bg-white">
           <MailSection />
         </div>
       </div>
